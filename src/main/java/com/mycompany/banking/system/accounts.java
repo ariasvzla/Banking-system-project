@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+<<<<<<< HEAD
 
 package com.mycompany.banking.system;
 
@@ -19,5 +20,14 @@ Serializable
     private String accountnumber;
     private double balance;
     private int sortcode;
+=======
+package com.mycompany.banking.system;
+
+/**
+ *
+ * @author Alzn-
+ */
+public class accounts {
+>>>>>>> origin/master
     
 }
