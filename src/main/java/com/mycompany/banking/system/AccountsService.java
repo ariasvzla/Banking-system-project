@@ -23,27 +23,27 @@ public class AccountsService {
     private EntityManager em = emf.createEntityManager();
     private EntityTransaction tx = em.getTransaction();
     
-    public List<accounts> retrieveAccounts() {
+    public List<Accounts> retrieveAccounts() {
         return allEntries();
     }
     
-    public List<accounts> allEntries() {
+    public List<Accounts> allEntries() {
         CriteriaBuilder cb = em.getCriteriaBuilder();
-        CriteriaQuery<accounts> cq = cb.createQuery(accounts.class);
-        Root<accounts> rootEntry = cq.from(accounts.class);
-        CriteriaQuery<accounts> all = cq.select(rootEntry);
-        TypedQuery<accounts> allQuery = em.createQuery(all);
+        CriteriaQuery<Accounts> cq = cb.createQuery(Accounts.class);
+        Root<Accounts> rootEntry = cq.from(Accounts.class);
+        CriteriaQuery<Accounts> all = cq.select(rootEntry);
+        TypedQuery<Accounts> allQuery = em.createQuery(all);
         return allQuery.getResultList();
     }
     
-    public accounts retrieveAccounts(int id) {
-        accounts test = em.find(accounts.class, id);
+    public Accounts retrieveAccounts(int id) {
+        Accounts test = em.find(Accounts.class, id);
         em.close();
         return test;
     }
     
-    public accounts createAccounts(accounts b) { 
-        accounts test = em.find(accounts.class, b.getAccountid());
+    public Accounts createAccounts(Accounts b) { 
+        Accounts test = em.find(Accounts.class, b.getAccountid());
         if (test == null) {
             tx.begin();
             em.persist(b);
@@ -56,7 +56,7 @@ public class AccountsService {
     }
     
     public void deleteAccounts(int id) {
-        accounts test = em.find(accounts.class, id);
+        Accounts test = em.find(Accounts.class, id);
         if (test !=null) {
             tx.begin();
             em.remove(test);

@@ -29,21 +29,21 @@ public class AccountsResources {
     
     @GET
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<accounts> listAccounts() {
+    public List<Accounts> listAccounts() {
         return accountsService.retrieveAccounts();
     }
     
     @GET
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     @Path("/{id}")
-    public accounts getAccounts(@PathParam("id") int id) {
+    public Accounts getAccounts(@PathParam("id") int id) {
         return accountsService.retrieveAccounts(id);
     }
     
     @POST
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public accounts saveAccounts(accounts b) {
+    public Accounts saveAccounts(Accounts b) {
         return accountsService.createAccounts(b);
     }
     

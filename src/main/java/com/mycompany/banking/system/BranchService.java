@@ -23,27 +23,27 @@ public class BranchService {
     private EntityManager em = emf.createEntityManager();
     private EntityTransaction tx = em.getTransaction();
     
-    public List<branch> retrieveBranch() {
+    public List<Branch> retrieveBranch() {
         return allEntries();
     }
     
-    public List<branch> allEntries() {
+    public List<Branch> allEntries() {
         CriteriaBuilder cb = em.getCriteriaBuilder();
-        CriteriaQuery<branch> cq = cb.createQuery(branch.class);
-        Root<branch> rootEntry = cq.from(branch.class);
-        CriteriaQuery<branch> all = cq.select(rootEntry);
-        TypedQuery<branch> allQuery = em.createQuery(all);
+        CriteriaQuery<Branch> cq = cb.createQuery(Branch.class);
+        Root<Branch> rootEntry = cq.from(Branch.class);
+        CriteriaQuery<Branch> all = cq.select(rootEntry);
+        TypedQuery<Branch> allQuery = em.createQuery(all);
         return allQuery.getResultList();
     }
     
-    public branch retrieveBranch(int id) {
-        branch test = em.find(branch.class, id);
+    public Branch retrieveBranch(int id) {
+        Branch test = em.find(Branch.class, id);
         em.close();
         return test;
     }
     
-    public branch createBranch(branch b) { 
-        branch test = em.find(branch.class, b.getBranchid());
+    public Branch createBranch(Branch b) { 
+        Branch test = em.find(Branch.class, b.getBranchid());
         if (test == null) {
             tx.begin();
             em.persist(b);
@@ -56,7 +56,7 @@ public class BranchService {
     }
     
     public void deleteBranch(int id) {
-        branch test = em.find(branch.class, id);
+        Branch test = em.find(Branch.class, id);
         if (test !=null) {
             tx.begin();
             em.remove(test);

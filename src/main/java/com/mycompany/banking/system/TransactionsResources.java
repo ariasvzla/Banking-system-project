@@ -29,21 +29,21 @@ public class TransactionsResources {
     
     @GET
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<transactions> listTransactions() {
+    public List<Transactions> listTransactions() {
         return transactionsService.retrieveTransactions();
     }
     
     @GET
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     @Path("/{id}")
-    public transactions getTransactions(@PathParam("id") int id) {
+    public Transactions getTransactions(@PathParam("id") int id) {
         return transactionsService.retrieveTransactions(id);
     }
     
     @POST
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public transactions saveTransactions(transactions b) {
+    public Transactions saveTransactions(Transactions b) {
         return transactionsService.createTransactions(b);
     }
     

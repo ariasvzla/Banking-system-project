@@ -29,21 +29,21 @@ public class CustomerResources {
     
     @GET
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<customer> listCustomer() {
+    public List<Customer> listCustomer() {
         return customerService.retrieveCustomer();
     }
     
     @GET
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     @Path("/{id}")
-    public customer getCustomer(@PathParam("id") int id) {
+    public Customer getCustomer(@PathParam("id") int id) {
         return customerService.retrieveCustomer(id);
     }
     
     @POST
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public customer saveCustomer(customer b) {
+    public Customer saveCustomer(Customer b) {
         return customerService.createCustomer(b);
     }
     

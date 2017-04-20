@@ -29,21 +29,21 @@ public class BranchResources {
     
     @GET
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<branch> listBranch() {
+    public List<Branch> listBranch() {
         return branchService.retrieveBranch();
     }
     
     @GET
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     @Path("/{id}")
-    public branch getBranch(@PathParam("id") int id) {
+    public Branch getBranch(@PathParam("id") int id) {
         return branchService.retrieveBranch(id);
     }
     
     @POST
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public branch saveBranch(branch b) {
+    public Branch saveBranch(Branch b) {
         return branchService.createBranch(b);
     }
     

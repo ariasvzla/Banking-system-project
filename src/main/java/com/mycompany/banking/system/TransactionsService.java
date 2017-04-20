@@ -23,27 +23,27 @@ public class TransactionsService {
     private EntityManager em = emf.createEntityManager();
     private EntityTransaction tx = em.getTransaction();
     
-    public List<transactions> retrieveTransactions() {
+    public List<Transactions> retrieveTransactions() {
         return allEntries();
     }
     
-    public List<transactions> allEntries() {
+    public List<Transactions> allEntries() {
         CriteriaBuilder cb = em.getCriteriaBuilder();
-        CriteriaQuery<transactions> cq = cb.createQuery(transactions.class);
-        Root<transactions> rootEntry = cq.from(transactions.class);
-        CriteriaQuery<transactions> all = cq.select(rootEntry);
-        TypedQuery<transactions> allQuery = em.createQuery(all);
+        CriteriaQuery<Transactions> cq = cb.createQuery(Transactions.class);
+        Root<Transactions> rootEntry = cq.from(Transactions.class);
+        CriteriaQuery<Transactions> all = cq.select(rootEntry);
+        TypedQuery<Transactions> allQuery = em.createQuery(all);
         return allQuery.getResultList();
     }
     
-    public transactions retrieveTransactions(int id) {
-        transactions test = em.find(transactions.class, id);
+    public Transactions retrieveTransactions(int id) {
+        Transactions test = em.find(Transactions.class, id);
         em.close();
         return test;
     }
     
-    public transactions createTransactions(transactions b) { 
-        transactions test = em.find(transactions.class, b.getTrid());
+    public Transactions createTransactions(Transactions b) { 
+        Transactions test = em.find(Transactions.class, b.getTrid());
         if (test == null) {
             tx.begin();
             em.persist(b);
@@ -56,7 +56,7 @@ public class TransactionsService {
     }
     
     public void deleteTransactions(int id) {
-        transactions test = em.find(transactions.class, id);
+        Transactions test = em.find(Transactions.class, id);
         if (test !=null) {
             tx.begin();
             em.remove(test);

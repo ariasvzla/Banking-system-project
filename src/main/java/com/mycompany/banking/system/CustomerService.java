@@ -23,27 +23,27 @@ public class CustomerService {
     private EntityManager em = emf.createEntityManager();
     private EntityTransaction tx = em.getTransaction();
     
-    public List<customer> retrieveCustomer() {
+    public List<Customer> retrieveCustomer() {
         return allEntries();
     }
     
-    public List<customer> allEntries() {
+    public List<Customer> allEntries() {
         CriteriaBuilder cb = em.getCriteriaBuilder();
-        CriteriaQuery<customer> cq = cb.createQuery(customer.class);
-        Root<customer> rootEntry = cq.from(customer.class);
-        CriteriaQuery<customer> all = cq.select(rootEntry);
-        TypedQuery<customer> allQuery = em.createQuery(all);
+        CriteriaQuery<Customer> cq = cb.createQuery(Customer.class);
+        Root<Customer> rootEntry = cq.from(Customer.class);
+        CriteriaQuery<Customer> all = cq.select(rootEntry);
+        TypedQuery<Customer> allQuery = em.createQuery(all);
         return allQuery.getResultList();
     }
     
-    public customer retrieveCustomer(int id) {
-        customer test = em.find(customer.class, id);
+    public Customer retrieveCustomer(int id) {
+        Customer test = em.find(Customer.class, id);
         em.close();
         return test;
     }
     
-    public customer createCustomer(customer b) { 
-        customer test = em.find(customer.class, b.getCustid());
+    public Customer createCustomer(Customer b) { 
+        Customer test = em.find(Customer.class, b.getCustid());
         if (test == null) {
             tx.begin();
             em.persist(b);
@@ -56,7 +56,7 @@ public class CustomerService {
     }
     
     public void deleteCustomer(int id) {
-        customer test = em.find(customer.class, id);
+        Customer test = em.find(Customer.class, id);
         if (test !=null) {
             tx.begin();
             em.remove(test);
