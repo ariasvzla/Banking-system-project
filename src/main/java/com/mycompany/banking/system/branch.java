@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table
 @XmlRootElement
-public class branch implements Serializable{
+public class Branch implements Serializable{
     @Id
     private int branchid;
     private String phonenumber;
@@ -27,10 +27,10 @@ public class branch implements Serializable{
     private int accounts_customer_custid;
     
 
- public branch() {
+ public Branch() {
     }
 
-    public branch(int branchid, String phonenumber, int accounts_accountid, int accounts_customer_custid) {
+    public Branch(int branchid, String phonenumber, int accounts_accountid, int accounts_customer_custid) {
         this.branchid = branchid;
         this.phonenumber = phonenumber;
         this.accounts_accountid = accounts_accountid;

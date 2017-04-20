@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table
 @XmlRootElement
-public class customer implements Serializable{
+public class Customer implements Serializable{
     @Id
     private int custid;
     private String firstname;
@@ -29,10 +29,10 @@ public class customer implements Serializable{
     private String password;
     
 
- public customer() {
+ public Customer() {
     }
 
-    public customer(int custid, String firstname, String address, String email, String password) {
+    public Customer(int custid, String firstname, String address, String email, String password) {
         this.custid = custid;
         this.firstname = firstname;
         this.address = address;
